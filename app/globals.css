@@ -1,85 +1,129 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #ffffff;
-  color: #333333;
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .font-orbitron {
+    font-family: 'Orbitron', sans-serif;
+  }
 }
 
-.navbar {
-  background-color: #1a237e;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+@layer components {
+  /* 容器类 */
+  .container-default {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
 
-.nav-links {
-  list-style: none;
-  display: flex;
-}
+  /* 标题类 */
+  .heading-1 {
+    @apply text-4xl sm:text-6xl font-bold tracking-tight text-white 
+           leading-tight sm:leading-tight mb-8;
+  }
 
-.nav-links li {
-  margin: 0 15px;
-}
+  .heading-2 {
+    @apply text-3xl sm:text-4xl font-bold mb-6 text-primary 
+           leading-snug sm:leading-snug;
+  }
 
-.nav-links a {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: bold;
-}
+  .heading-3 {
+    @apply text-xl sm:text-2xl font-semibold mb-4 
+           leading-relaxed sm:leading-relaxed;
+  }
 
-.hero {
-  background: linear-gradient(135deg, #1a237e, #0091ea);
-  color: #ffffff;
-  text-align: center;
-  padding: 80px 0;
-}
+  /* 段落文本 */
+  .text-body {
+    @apply text-base text-neutral-600 leading-relaxed;
+  }
 
-.value-proposition, .creators, .brands, .success-stories, .contact {
-  padding: 60px 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
+  .text-body-light {
+    @apply text-base text-neutral-200 leading-relaxed max-w-3xl;
+  }
 
-.features, .tracks, .stories {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
+  /* 卡片样式 */
+  .card-default {
+    @apply p-6 rounded-2xl border border-neutral-200 hover:border-primary/50 transition-colors;
+  }
 
-.feature, .track, .story {
-  background-color: #f9f9f9;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  flex: 1;
-  min-width: 200px;
-}
+  .card-primary {
+    @apply p-6 rounded-2xl bg-primary text-white;
+  }
 
-.button {
-  background-color: #ff6d00;
-  color: #ffffff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  text-decoration: none;
-  margin: 10px;
-  display: inline-block;
-}
+  .card-highlight {
+    @apply p-6 rounded-2xl bg-gradient-to-br from-primary to-primary-light text-white;
+  }
 
-.button:hover {
-  background-color: #ff8a33;
-}
+  /* 按钮样式 */
+  .btn-primary {
+    @apply rounded-md bg-secondary-magenta px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-secondary-magenta/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary-magenta;
+  }
 
-.contact-info {
-  margin-top: 20px;
-  text-align: center;
-}
+  .btn-secondary {
+    @apply rounded-md bg-secondary-yellow px-3.5 py-2.5 text-sm font-semibold text-primary shadow-sm hover:bg-secondary-yellow/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary-yellow;
+  }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+  .btn-outline {
+    @apply px-6 py-3 border-2 border-accent text-accent hover:bg-accent hover:text-primary font-semibold rounded-lg transition-colors;
+  }
+
+  .btn-join {
+    @apply rounded-md bg-accent px-2.5 py-1.5 font-semibold text-primary shadow-sm 
+           hover:bg-accent/90 transition-colors duration-200
+           border border-accent hover:border-accent/90;
+  }
+
+  /* 装饰性背景 */
+  .bg-blur-effect {
+    @apply absolute blur-3xl rounded-full opacity-20;
+  }
+
+  /* 标签样式 */
+  .tag {
+    @apply inline-block px-6 py-2 text-sm font-medium
+           rounded-full bg-gradient-to-r from-secondary-magenta/90 to-secondary-magenta-light/80
+           mb-8 tracking-wide uppercase backdrop-blur-sm;
+  }
+
+  /* 列表样式 */
+  .list-check {
+    @apply space-y-2;
+  }
+
+  .list-check li {
+    @apply flex items-center gap-2;
+  }
+
+  .list-check li span {
+    @apply text-secondary-magenta;
+  }
+
+  /* 数据展示 */
+  .stat-number {
+    @apply text-4xl font-bold tracking-tight;
+  }
+
+  .stat-label {
+    @apply text-sm text-white/70;
+  }
+
+  /* 表单样式 */
+  .form-input {
+    @apply w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium text-neutral-700 mb-1;
+  }
+
+  /* 组件标签样式 */
+  .component-tag {
+    @apply inline-block px-6 py-2 text-sm font-medium
+           rounded-full 
+           bg-gradient-to-r from-secondary-magenta-dark via-secondary-magenta to-secondary-magenta-light
+           mb-8 tracking-wide uppercase
+           backdrop-blur-sm
+           border border-white/10
+           shadow-lg;
+  }
 }

@@ -4,6 +4,13 @@ import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 
 const HeroSection = () => {
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="pt-16 bg-gradient-to-br from-primary via-primary-light to-secondary-magenta/30 relative overflow-hidden">
       <div className="bg-blur-effect top-0 right-0 w-1/3 h-1/3 bg-secondary-magenta-light/20"></div>
@@ -22,10 +29,16 @@ const HeroSection = () => {
             help you grow with confidence.
           </p>
           <div className="flex flex-col sm:flex-row gap-8 justify-center mb-16">
-            <button className="btn-primary text-sm flex items-center justify-center gap-2 border-2 border-primary hover:border-primary/80">
+            <button 
+              onClick={() => scrollToSection('creators')}
+              className="btn-primary text-sm flex items-center justify-center gap-2 border-2 border-primary hover:border-primary/80"
+            >
               For Creators <ArrowRight className="w-4 h-4" />
             </button>
-            <button className="btn-secondary text-sm flex items-center justify-center gap-2 border-2 border-primary hover:border-primary/80">
+            <button 
+              onClick={() => scrollToSection('sellers')}
+              className="btn-secondary text-sm flex items-center justify-center gap-2 border-2 border-primary hover:border-primary/80"
+            >
               For Sellers <ArrowRight className="w-4 h-4" />
             </button>
           </div>

@@ -1,22 +1,22 @@
 import React from 'react';
-import Navigation from './components/Navigation';
 import HeroSection from './components/HeroSection';
-import SellerSection from './components/SellerSection';
 import CreatorSection from './components/CreatorSection';
+import SellerSection from './components/SellerSection';
 import SuccessStories from './components/SuccessStories';
 import FAQSection from './components/FAQSection';
 import ContactSection from './components/ContactSection';
+import Footer from './components/Footer';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white">
-      <Navigation />
+    <main>
       <HeroSection />
-      <SellerSection />
       <CreatorSection />
+      <SellerSection />
       <SuccessStories />
       <FAQSection />
       <ContactSection />
+      <Footer />
     </main>
   );
 }

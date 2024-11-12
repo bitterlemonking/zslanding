@@ -5,24 +5,24 @@ import { Star } from 'lucide-react';
 const SuccessStories = () => {
   const stories = [
     {
-      name: "Sarah Chen",
-      role: "Marketing Director",
-      company: "TechGrowth",
-      content: "Zero Shot Media transformed our content strategy. We've seen a 300% increase in engagement since using their AI tools.",
+      name: "Lisa Zhang",
+      role: "Brand Owner",
+      company: "BeautyGlow",
+      content: "Their Creator Network is incredible. The AI matching helped us find the perfect creators for our brand, and our sales increased by 400% in just two months.",
       rating: 5
     },
     {
-      name: "David Park",
+      name: "Mike Chen",
       role: "Content Creator",
-      company: "Creative Studios",
-      content: "The quality and speed of content generation is unmatched. It's like having a full production team at your fingertips.",
+      company: "TikTok Live Streamer",
+      content: "The professional studio support and live streaming training transformed my career. My average viewer count went from 50 to 1,000+ per stream.",
       rating: 5
     },
     {
-      name: "Emma Wilson",
-      role: "E-commerce Manager",
-      company: "Fashion Forward",
-      content: "Our product videos now take minutes instead of days to create. The ROI has been incredible.",
+      name: "Jessica Wang",
+      role: "E-commerce Director",
+      company: "FashionNova",
+      content: "Their Smart Advertising and Store Growth solutions revolutionized our TikTok Shop. The AI-powered strategies helped us achieve 7-figure monthly sales.",
       rating: 5
     }
   ];
@@ -37,7 +37,7 @@ const SuccessStories = () => {
           <span className="tag">Success Stories</span>
           <h2 className="heading-1">What Our Clients Say</h2>
           <p className="text-body-light max-w-2xl mx-auto">
-            See how businesses and creators are transforming their content with AI
+            Real results from our AI-powered growth solutions
           </p>
         </div>
 

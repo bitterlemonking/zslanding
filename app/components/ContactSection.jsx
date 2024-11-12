@@ -1,123 +1,172 @@
 'use client';
 import React, { useState } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { MapPin, Mail } from 'lucide-react';
 
 const ContactSection = () => {
+  const [formType, setFormType] = useState('creator'); // 'creator' or 'seller'
   const [formData, setFormData] = useState({
-    name: '',
+    firstName: '',
+    lastName: '',
     email: '',
     message: '',
-    consent: false
+    tiktokHandle: '',
+    invitationCode: '',
+    shopName: '',
+    website: ''
   });
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-  };
-
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
-      [name]: type === 'checkbox' ? checked : value
+      [name]: value
     }));
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Form submitted:', formData);
+    // Add your form submission logic here
+  };
+
   return (
-    <section id="contact" className="py-20 bg-primary">
+    <section id="contact" className="py-20 bg-gradient-to-br from-primary-dark to-primary">
       <div className="container-default">
-        <div className="flex justify-center">
-          <span className="component-tag">Get Started</span>
-        </div>
         <div className="text-center mb-12">
-          <h2 className="heading-2">Ready to Transform Your Content?</h2>
-          <p className="text-body max-w-2xl mx-auto mb-8">
-            Join thousands of creators and businesses already using Zero Shot Media
+          <h2 className="heading-1">Want to learn more?</h2>
+          <p className="text-body-light max-w-2xl mx-auto">
+            If you are interested in partnering with us, fill out the application form below or use the button to schedule an intro call!
           </p>
-          <div className="flex justify-center gap-4 mb-16">
-            <button className="px-8 py-4 bg-accent hover:bg-accent-dark text-primary font-bold rounded-lg transition-colors flex items-center gap-2">
-              Get Started Now <ArrowRight className="w-5 h-5" />
+        </div>
+
+        <div className="max-w-4xl mx-auto">
+          <div className="flex justify-center gap-4 mb-8">
+            <button 
+              onClick={() => setFormType('creator')}
+              className={`px-6 py-2 rounded-full ${formType === 'creator' ? 'bg-accent text-white' : 'bg-white/5 text-body-light'}`}
+            >
+              I'm a Creator
+            </button>
+            <button 
+              onClick={() => setFormType('seller')}
+              className={`px-6 py-2 rounded-full ${formType === 'seller' ? 'bg-accent text-white' : 'bg-white/5 text-body-light'}`}
+            >
+              I'm a Seller
             </button>
           </div>
-        </div>
 
-        <div className="max-w-xl mx-auto">
-          <form onSubmit={handleSubmit} className="space-y-6 bg-white p-8 rounded-2xl shadow-lg relative">
-            <div>
-              <label htmlFor="name" className="form-label">
-                Full Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                className="form-input"
-                required
-                placeholder="Enter your full name"
-              />
+          <button className="w-full py-3 mb-8 bg-white text-primary font-semibold rounded-lg hover:bg-white/90 transition-colors">
+            Schedule an Intro Call
+          </button>
+
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label className="text-sm text-body-light">First Name *</label>
+                <input
+                  type="text"
+                  name="firstName"
+                  required
+                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white"
+                  onChange={handleInputChange}
+                />
+              </div>
+              <div>
+                <label className="text-sm text-body-light">Last Name *</label>
+                <input
+                  type="text"
+                  name="lastName"
+                  required
+                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white"
+                  onChange={handleInputChange}
+                />
+              </div>
             </div>
 
             <div>
-              <label htmlFor="email" className="form-label">
-                Email Address
-              </label>
+              <label className="text-sm text-body-light">Email *</label>
               <input
                 type="email"
-                id="email"
                 name="email"
-                value={formData.email}
-                onChange={handleChange}
-                className="form-input"
                 required
-                placeholder="Enter your email address"
+                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white"
+                onChange={handleInputChange}
               />
             </div>
 
+            {formType === 'creator' ? (
+              <>
+                <div>
+                  <label className="text-sm text-body-light">Your TikTok Handle</label>
+                  <input
+                    type="text"
+                    name="tiktokHandle"
+                    placeholder="@YourTikTokUsername"
+                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white"
+                    onChange={handleInputChange}
+                  />
+                </div>
+                <div>
+                  <label className="text-sm text-body-light">Your Invitation Code</label>
+                  <input
+                    type="text"
+                    name="invitationCode"
+                    placeholder="ZEROSHOT100"
+                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white"
+                    onChange={handleInputChange}
+                  />
+                </div>
+              </>
+            ) : (
+              <>
+                <div>
+                  <label className="text-sm text-body-light">TikTok Shop / Brand Name</label>
+                  <input
+                    type="text"
+                    name="shopName"
+                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white"
+                    onChange={handleInputChange}
+                  />
+                </div>
+                <div>
+                  <label className="text-sm text-body-light">Website (Optional)</label>
+                  <input
+                    type="url"
+                    name="website"
+                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white"
+                    onChange={handleInputChange}
+                  />
+                </div>
+              </>
+            )}
+
             <div>
-              <label htmlFor="message" className="form-label">
-                Message
-              </label>
+              <label className="text-sm text-body-light">Message</label>
               <textarea
-                id="message"
                 name="message"
-                value={formData.message}
-                onChange={handleChange}
                 rows="4"
-                className="form-input"
-                required
-                placeholder="How can we help you?"
+                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white"
+                onChange={handleInputChange}
               ></textarea>
             </div>
 
-            <div className="flex items-start">
-              <div className="flex items-center h-5">
-                <input
-                  id="consent"
-                  name="consent"
-                  type="checkbox"
-                  checked={formData.consent}
-                  onChange={handleChange}
-                  className="h-4 w-4 text-accent focus:ring-accent border-neutral-300 rounded"
-                  required
-                />
-              </div>
-              <div className="ml-3">
-                <label htmlFor="consent" className="text-sm text-body">
-                  I agree to receive communications from Zero Shot Media. You can unsubscribe at any time. 
-                  View our <a href="/privacy" className="text-accent hover:text-accent-dark hover:underline">Privacy Policy</a>.
-                </label>
-              </div>
+            <div className="pt-4">
+              <button type="submit" className="w-full py-3 bg-accent text-white font-semibold rounded-lg hover:bg-accent/90 transition-colors">
+                Send
+              </button>
             </div>
-
-            <button
-              type="submit"
-              className="btn-primary w-full"
-            >
-              Send Message
-            </button>
           </form>
+
+          <div className="mt-12 flex flex-col sm:flex-row justify-center gap-8 text-body-light">
+            <div className="flex items-center gap-2">
+              <MapPin className="w-5 h-5" />
+              <span>Castro Valley, CA</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Mail className="w-5 h-5" />
+              <a href="mailto:yddcreation@gmail.com" className="hover:text-accent">Email Us</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>

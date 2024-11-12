@@ -1,89 +1,104 @@
 'use client';
 import React from 'react';
-import { Video, Image, Zap, Sparkles } from 'lucide-react';
+import { Video, Target, Coins, Radio } from 'lucide-react';
 
 const CreatorSection = () => {
   return (
-    <section id="creators" className="py-20">
+    <section id="creators" className="py-20 bg-gradient-to-br from-primary via-primary-light to-primary">
       <div className="container-default">
-        <div className="flex justify-center">
-          <span className="component-tag">For Content Creators</span>
-        </div>
-        <div className="text-center mb-12">
-          <h2 className="heading-1">Unleash Your Creative Potential</h2>
-          <p className="text-body-light max-w-2xl mx-auto">
-            Advanced AI tools to transform your ideas into stunning content
+        <div className="text-center mb-16">
+          <span className="component-tag mb-4 inline-block">For Creators</span>
+          <h2 className="heading-1 mb-6">What We Offer</h2>
+          <p className="text-body-light max-w-2xl mx-auto text-lg">
+            Join our elite creator network and unlock your growth potential
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 mb-12">
           <div className="card-highlight">
             <Video className="w-10 h-10 text-accent mb-4" />
-            <h3 className="heading-3">AI Video Generation</h3>
-            <p className="text-body-light mb-4">Transform text into engaging videos</p>
+            <h3 className="heading-3">Professional Studio Support</h3>
+            <p className="text-body-light mb-4">
+              Access to state-of-the-art studio facilities and expert production team
+            </p>
             <ul className="list-check">
               <li className="text-body-light">
-                <span>✓</span> Multiple style options
+                <span>✓</span> Professional equipment
               </li>
               <li className="text-body-light">
-                <span>✓</span> Custom voice-overs
+                <span>✓</span> Technical assistance
               </li>
               <li className="text-body-light">
-                <span>✓</span> Brand customization
+                <span>✓</span> Content planning
               </li>
             </ul>
           </div>
 
           <div className="card-highlight">
-            <Image className="w-10 h-10 text-accent mb-4" />
-            <h3 className="heading-3">Image Creation</h3>
-            <p className="text-body-light mb-4">Generate unique visuals instantly</p>
+            <Target className="w-10 h-10 text-accent mb-4" />
+            <h3 className="heading-3">Growth Resources</h3>
+            <p className="text-body-light mb-4">
+              Exclusive access to platform resources and traffic boost opportunities
+            </p>
             <ul className="list-check">
               <li className="text-body-light">
-                <span>✓</span> High resolution output
+                <span>✓</span> Official campaign access
               </li>
               <li className="text-body-light">
-                <span>✓</span> Style consistency
+                <span>✓</span> Traffic boost support
               </li>
               <li className="text-body-light">
-                <span>✓</span> Batch processing
+                <span>✓</span> Brand collaboration
               </li>
             </ul>
           </div>
 
           <div className="card-highlight">
-            <Zap className="w-10 h-10 text-accent mb-4" />
-            <h3 className="heading-3">Quick Editing</h3>
-            <p className="text-body-light mb-4">Edit content in seconds</p>
+            <Coins className="w-10 h-10 text-accent mb-4" />
+            <h3 className="heading-3">Revenue Optimization</h3>
+            <p className="text-body-light mb-4">
+              Strategic guidance to maximize your monetization opportunities
+            </p>
             <ul className="list-check">
               <li className="text-body-light">
-                <span>✓</span> One-click enhancement
+                <span>✓</span> Income strategy
               </li>
               <li className="text-body-light">
-                <span>✓</span> Smart cropping
+                <span>✓</span> Performance analysis
               </li>
               <li className="text-body-light">
-                <span>✓</span> Instant resizing
+                <span>✓</span> Revenue tracking
               </li>
             </ul>
           </div>
 
           <div className="card-highlight">
-            <Sparkles className="w-10 h-10 text-accent mb-4" />
-            <h3 className="heading-3">Style Transfer</h3>
-            <p className="text-body-light mb-4">Apply unique styles to your content</p>
+            <Radio className="w-10 h-10 text-accent mb-4" />
+            <h3 className="heading-3">Live Streaming Training</h3>
+            <p className="text-body-light mb-4">
+              Comprehensive training and support for successful live streaming
+            </p>
             <ul className="list-check">
               <li className="text-body-light">
-                <span>✓</span> Preset style library
+                <span>✓</span> Sales techniques
               </li>
               <li className="text-body-light">
-                <span>✓</span> Custom style creation
+                <span>✓</span> Audience engagement
               </li>
               <li className="text-body-light">
-                <span>✓</span> Real-time preview
+                <span>✓</span> Performance coaching
               </li>
             </ul>
           </div>
+        </div>
+
+        <div className="text-center mt-16">
+          <a 
+            href="#contact" 
+            className="btn-primary inline-flex items-center justify-center gap-2 text-lg px-8 py-4"
+          >
+            Schedule A Call Today
+          </a>
         </div>
       </div>
     </section>

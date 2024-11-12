@@ -1,4 +1,5 @@
 import React from 'react';
+import Navigation from './components/Navigation';
 import HeroSection from './components/HeroSection';
 import CreatorSection from './components/CreatorSection';
 import SellerSection from './components/SellerSection';
@@ -10,6 +11,7 @@ import Footer from './components/Footer';
 export default function Home() {
   return (
     <main>
+      <Navigation />
       <HeroSection />
       <CreatorSection />
       <SellerSection />
